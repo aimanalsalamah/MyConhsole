@@ -8,7 +8,7 @@ if (job == "+")
     Console.WriteLine("Enter value2");
     var value2 = int.Parse(Console.ReadLine());
     var result = value1 + value2;
-    Console.WriteLine("Value 1 + value 2 = " + result);
+    Console.WriteLine("Value1 + value2 = " + result);
 }
 if (job == "-")
 {
@@ -26,7 +26,7 @@ if (job == "/")
     Console.WriteLine("Enter value2");
     var value2 = int.Parse(Console.ReadLine());
     var result = value1 / value2;
-    Console.WriteLine("Value 1 / value 2 = " + result);
+    Console.WriteLine("Value1 / value2 = " + result);
 }
 if (job == "*")
 {
