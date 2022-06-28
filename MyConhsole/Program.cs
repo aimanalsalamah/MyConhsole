@@ -1,4 +1,21 @@
 ﻿line1:
+{
+    Console.WriteLine("male or female");
+    var selection = Console.ReadLine();
+
+    if (selection == "male")
+    {
+        {
+            Console.WriteLine("hello Mr");
+        }
+    }
+    if (selection == "female")
+    {
+        {
+            Console.WriteLine("hello Ms");
+        }
+    }
+}
 Console.WriteLine("Enter what you need to do:");
 var job = Console.ReadLine();
 if (job == "+")
