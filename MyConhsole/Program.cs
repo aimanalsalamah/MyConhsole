@@ -1,34 +1,16 @@
 ﻿// this is mohammeds branch
 line1:
-{
-    Console.WriteLine("male or female");
-    var selection = Console.ReadLine();
-
-    if (selection == "male")
-    {
-        {
-            Console.WriteLine("hello Mr");
-        }
-    }
-    if (selection == "female")
-    {
-        {
-            Console.WriteLine("hello Ms");
-        }
-    }
-}
 Console.WriteLine("Enter what you need to do:");
 switch (Console.ReadLine())
 {
     case "data":
-        var json1 = System.IO.File.ReadAllText(@"..\..\..\Data.json");
+        var json1 = System.IO.File.ReadAllText(@"..\..\..\json1.json");
         var UsersData = System.Text.Json.JsonSerializer.Deserialize<List<employer>>(json1);
         foreach (var item in UsersData)
         {
-            Console.WriteLine($"name:{item.name}, major:{item.major}, Mobile:{item.Mobile}, age{item.age}");
+            Console.WriteLine($"name:{item.name}, major:{item.major}, mobile:{item.mobile}, age{item.age}");
         }
         break;
-        {
     case "+":
         Console.WriteLine("Enter value1");
         var value1 = int.Parse(Console.ReadLine());
