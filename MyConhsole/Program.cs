@@ -3,6 +3,14 @@ line1:
 Console.WriteLine("Enter what you need to do:");
 switch (Console.ReadLine())
 {
+    case "data":
+        var json = System.IO.File.ReadAllText(@"..\..\..\Data.json");
+        var UsersData = System.Text.Json.JsonSerializer.Deserialize<List<Users>>(json);
+        foreach (var item in UsersData)
+        {
+            Console.WriteLine($"name:{item.name}, Age:{item.Age}, Mobile:{item.Mobile}");
+        }
+        break;
     case "+":
         Console.WriteLine("Enter value1");
         var value1 = int.Parse(Console.ReadLine());
@@ -55,3 +63,15 @@ switch (Console.ReadLine())
         break;
 }
 goto line1;
+
+public class Users
+{
+    public string name { get; set; }
+    public int Age { get; set; }
+    public string Mobile { get; set; }
+    public string Email { get; set; }
+    public string MaritalStatus { get; set; }
+    public int Children { get; set; }
+    public string City { get; set; }
+    public string Area { get; set; }
+}
