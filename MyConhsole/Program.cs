@@ -2,6 +2,14 @@
 Console.WriteLine("Enter what you need :");
 switch (Console.ReadLine())
 {
+    case "data":
+        var json = System.IO.File.ReadAllText(@"..\..\..\Data.json");
+        var UsersData = System.Text.Json.JsonSerializer.Deserialize<List<product>>(json);
+        foreach (var item in UsersData)
+        {
+            Console.WriteLine($"name:{item.name}, model:{item.model}, color:{item.color},type:{item.type}");
+        }
+        break;
 
     case "+":
         Console.WriteLine("Enter plusval1");
@@ -59,14 +67,12 @@ goto line1;
 
 
 
-public class Users
+public class product
 {
     public string name { get; set; }
-    public int Age { get; set; }
-    public string Mobile { get; set; }
-    public string Email { get; set; }
-    public string MaritalStatus { get; set; }
-    public int Children { get; set; }
-    public string City { get; set; }
-    public string Area { get; set; }
+    public int model { get; set; }
+    
+    public string color { get; set; }
+    public string type { get; set; }
+
 }
