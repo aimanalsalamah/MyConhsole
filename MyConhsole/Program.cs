@@ -1,29 +1,17 @@
 ﻿//This is Aiman Branch Welcome
 line1:
 Console.WriteLine("Enter what you need to do:");
-T DeserializeJson<T>(string fileName) where T : new()
-{
-    if (System.IO.File.Exists(@$"..\..\..\{fileName}.json"))
-    {
-        var json = System.IO.File.ReadAllText(@$"..\..\..\{fileName}.json");
-        return System.Text.Json.JsonSerializer.Deserialize<T>(json);
-    }
-    else
-    {
-        Console.WriteLine($"The file {fileName}.json not found or moved.");
-        return new();
-    }
-}
+
 switch (Console.ReadLine())
 {
     case "data":
-        foreach (var item in DeserializeJson<List<Users>>("Data"))
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Users>>("Data"))
         {
             Console.WriteLine($"name:{item.name}, Age:{item.Age}, Mobile:{item.Mobile}");
         }
         break;
     case "customer":
-        foreach (var item in DeserializeJson<List<Customers>>("Customers"))
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Customers>>("Customers"))
         {
             Console.WriteLine($"name:{item.name}, Age:{item.Age}");
         }
