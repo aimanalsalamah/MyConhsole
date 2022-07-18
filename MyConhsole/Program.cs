@@ -1,47 +1,51 @@
 ﻿line1:
-Console.WriteLine("Enter what you need :");
+Console.WriteLine("Enter what you need to do:");
+
 switch (Console.ReadLine())
 {
     case "data":
-        var json = System.IO.File.ReadAllText(@"..\..\..\Data.json");
-        var UsersData = System.Text.Json.JsonSerializer.Deserialize<List<product>>(json);
-        foreach (var item in UsersData)
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Users>>("Data"))
         {
-            Console.WriteLine($"name:{item.name}, model:{item.model}, color:{item.color},type:{item.type}");
+            Console.WriteLine($"name:{item.name}, Age:{item.Age}, Mobile:{item.Mobile}");
         }
         break;
-
+    case "customer":
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Customers>>("Customers"))
+        {
+            Console.WriteLine($"name:{item.name}, Age:{item.Age}");
+        }
+        break;
     case "+":
-        Console.WriteLine("Enter plusval1");
-        var plusval1 = int.Parse(Console.ReadLine());
-        Console.WriteLine("Enter plusval2");
-        var plusval2 = int.Parse(Console.ReadLine());
-        var result = plusval1 + plusval2;
-        Console.WriteLine("plusval1 + plusval1 = " + result);
+        Console.WriteLine("Enter value1");
+        var value1 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter value2");
+        var value2 = int.Parse(Console.ReadLine());
+        var result = value1 + value2;
+        Console.WriteLine("Value1 + value2 = " + result);
         break;
     case "-":
-        Console.WriteLine("Enter  minusval1");
-        var minusval1 = int.Parse(Console.ReadLine());
-        Console.WriteLine("Enter  minusval2");
-        var minusval2 = int.Parse(Console.ReadLine());
-        var result1 = minusval1 - minusval2;
-        Console.WriteLine(" minusval1 -  minusval2 = " + result1);
+        Console.WriteLine("Enter value1");
+        var value3 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter value2");
+        var value4 = int.Parse(Console.ReadLine());
+        var result1 = value3 - value4;
+        Console.WriteLine("Value 1 - value 2 = " + result1);
         break;
     case "/":
-        Console.WriteLine("dividingval1");
-        var dividingval1 = int.Parse(Console.ReadLine());
-        Console.WriteLine("dividingval2");
-        var dividingval2 = int.Parse(Console.ReadLine());
-        var result2 = dividingval1 / dividingval1;
-        Console.WriteLine("dividingval1 / dividingval2 = " + result2);
+        Console.WriteLine("Enter value1");
+        var value5 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter value2");
+        var value6 = int.Parse(Console.ReadLine());
+        var result2 = value5 / value6;
+        Console.WriteLine("Value1 / value2 = " + result2);
         break;
     case "*":
-        Console.WriteLine("Enter  maxval1");
-        var maxval1 = int.Parse(Console.ReadLine());
-        Console.WriteLine("Enter  maxval2");
-        var maxval2 = int.Parse(Console.ReadLine());
-        var result3 = maxval1 * maxval2;
-        Console.WriteLine(" maxval1 *  maxval2 = " + result3);
+        Console.WriteLine("Enter value1");
+        var value7 = int.Parse(Console.ReadLine());
+        Console.WriteLine("Enter value2");
+        var value8 = int.Parse(Console.ReadLine());
+        var result3 = value7 * value8;
+        Console.WriteLine("Value 1 * value 2 = " + result3);
         break;
     case "text":
         Console.WriteLine("Do you want to read or write");
@@ -64,15 +68,19 @@ switch (Console.ReadLine())
 }
 goto line1;
 
-
-
-
-public class product
+public class Users
 {
     public string name { get; set; }
-    public int model { get; set; }
-    
-    public string color { get; set; }
-    public string type { get; set; }
-
+    public int Age { get; set; }
+    public string Mobile { get; set; }
+    public string Email { get; set; }
+    public string MaritalStatus { get; set; }
+    public int Children { get; set; }
+    public string City { get; set; }
+    public string Area { get; set; }
+}
+public class Customers
+{
+    public string name { get; set; }
+    public int Age { get; set; }
 }
