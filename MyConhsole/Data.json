@@ -1,12 +1,12 @@
 [
  {
-    "name": "mohammed",
-    "mobile": "0567899987",
-    "age": 24
+    "Name": "mohammed",
+    "Mobile":"054546555",
+    "Age": 25
  },
  {
-    "name": "ahmad",
-    "mobile": "05645645754",
-    "age": 22
+    "Name":  "ahmad",
+    "Mobile":"05534534545",
+    "Age": 50
  }
 ]

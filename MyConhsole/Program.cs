@@ -5,15 +5,15 @@ Console.WriteLine("Enter what you need to do:");
 switch (Console.ReadLine())
 {
     case "data":
-        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<users>>("Data"))
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Users>>("Data"))
         {
-            Console.WriteLine($"name:{item.name}, Age:{item.age}, Mobile:{item.mobile}");
+            Console.WriteLine($"name:{item.Name}, Age:{item.Age}, Mobile:{item.Mobile}");
         }
         break;
     case "customer":
         foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Customers>>("Customers"))
         {
-            Console.WriteLine($"name:{item.name}, Age:{item.age}");
+            Console.WriteLine($"name:{item.Name}, Age:{item.Age}");
         }
             break;
     case "-":
@@ -61,16 +61,16 @@ switch (Console.ReadLine())
 }
 goto line1;
 
-public class users
+public class Users
 {
-    public string name { get; set; }
-    public string mobile { get; set; }
-    public int age { get; set; }
+    public string Name { get; set; }
+    public string Mobile { get; set; }
+    public int Age { get; set; }
 }
 
 public class Customers
 {
-    public string name { get; set; }
-    public int age { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
 }
 
