@@ -1,14 +1,31 @@
 ﻿//This is Aiman Branch Welcome
 line1:
 Console.WriteLine("Enter what you need to do:");
+T DeserializeJson<T>(string fileName) where T : new()
+{
+    if (System.IO.File.Exists(@$"..\..\..\{fileName}.json"))
+    {
+        var json = System.IO.File.ReadAllText(@$"..\..\..\{fileName}.json");
+        return System.Text.Json.JsonSerializer.Deserialize<T>(json);
+    }
+    else
+    {
+        Console.WriteLine($"The file {fileName}.json not found or moved.");
+        return new();
+    }
+}
 switch (Console.ReadLine())
 {
     case "data":
-        var json = System.IO.File.ReadAllText(@"..\..\..\Data.json");
-        var UsersData = System.Text.Json.JsonSerializer.Deserialize<List<Users>>(json);
-        foreach (var item in UsersData)
+        foreach (var item in DeserializeJson<List<Users>>("Data"))
         {
             Console.WriteLine($"name:{item.name}, Age:{item.Age}, Mobile:{item.Mobile}");
+        }
+        break;
+    case "customer":
+        foreach (var item in DeserializeJson<List<Customers>>("Customers"))
+        {
+            Console.WriteLine($"name:{item.name}, Age:{item.Age}");
         }
         break;
     case "+":
@@ -74,4 +91,9 @@ public class Users
     public int Children { get; set; }
     public string City { get; set; }
     public string Area { get; set; }
+}
+public class Customers
+{
+    public string name { get; set; }
+    public int Age { get; set; }
 }
