@@ -9,8 +9,8 @@ switch (Console.ReadLine())
             Console.WriteLine($"name:{item.name}, Age:{item.Age}, Mobile:{item.Mobile}");
         }
         break;
-    case "customer":
-        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Customers>>("Customers"))
+    case "Customer":
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Customers>>("Customer"))
         {
             Console.WriteLine($"name:{item.name}, Age:{item.Age}");
         }
@@ -66,6 +66,9 @@ switch (Console.ReadLine())
         Console.WriteLine("Wrong command.");
         break;
 }
+
+
+
 goto line1;
 
 public class Users
