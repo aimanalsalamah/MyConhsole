@@ -4,6 +4,13 @@ Console.WriteLine("Enter what you need to do:");
 
 switch (Console.ReadLine())
 {
+    case "test":
+        var Funtype = new Tools.FunctionTypes();
+        Funtype.None();
+        Funtype.Take("Aiman");
+        Console.WriteLine(Funtype.Giv());
+        Console.WriteLine(Funtype.TakeAndGit(10,10));
+        break;
     case "data":
         foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Users>>("Data"))
         {
