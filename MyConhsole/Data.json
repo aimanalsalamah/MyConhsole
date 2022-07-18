@@ -1,9 +1,22 @@
 [
   {
     "name": "Aiman salamh",
-    "model": 2005,
-    "color": "black",
-    "type": "camry",
-   
+    "Age": 42,
+    "Mobile": "0555424435",
+    "Email": "aiman_salamah@hotmail.com",
+    "MaritalStatus": "marrid",
+    "Children": 4,
+    "City": "Riyadh",
+    "Area": "King Fahad"
+  },
+  {
+    "name": "Ali",
+    "Age": 24,
+    "Mobile": "05555555555",
+    "Email": "ali@hotmail.com",
+    "MaritalStatus": "Single",
+    "Children": 4,
+    "City": "Riyadh",
+    "Area": "Alnasim"
   }
 ]
