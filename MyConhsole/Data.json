@@ -1,13 +1,11 @@
 [
  {
     "name": "mohammed",
-    "major": "doctor",
     "mobile": "0567899987",
     "age": 24
  },
  {
     "name": "ahmad",
-    "major": "programmer",
     "mobile": "05645645754",
     "age": 22
  }

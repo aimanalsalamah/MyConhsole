@@ -1,24 +1,21 @@
 ﻿// this is mohammeds branch
 line1:
 Console.WriteLine("Enter what you need to do:");
+
 switch (Console.ReadLine())
 {
     case "data":
-        var json1 = System.IO.File.ReadAllText(@"..\..\..\json1.json");
-        var UsersData = System.Text.Json.JsonSerializer.Deserialize<List<employer>>(json1);
-        foreach (var item in UsersData)
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<users>>("Data"))
         {
-            Console.WriteLine($"name:{item.name}, major:{item.major}, mobile:{item.mobile}, age{item.age}");
+            Console.WriteLine($"name:{item.name}, Age:{item.age}, Mobile:{item.mobile}");
         }
         break;
-    case "+":
-        Console.WriteLine("Enter value1");
-        var value1 = int.Parse(Console.ReadLine());
-        Console.WriteLine("Enter value2");
-        var value2 = int.Parse(Console.ReadLine());
-        var result = value1 + value2;
-        Console.WriteLine("Value1 + value2 = " + result);
-        break;
+    case "customer":
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Customers>>("Customers"))
+        {
+            Console.WriteLine($"name:{item.name}, Age:{item.age}");
+        }
+            break;
     case "-":
         Console.WriteLine("Enter value1");
         var value3 = int.Parse(Console.ReadLine());
@@ -64,10 +61,16 @@ switch (Console.ReadLine())
 }
 goto line1;
 
-public class employer
+public class users
 {
     public string name { get; set; }
-    public string major { get; set; }
     public string mobile { get; set; }
     public int age { get; set; }
 }
+
+public class Customers
+{
+    public string name { get; set; }
+    public int age { get; set; }
+}
+
