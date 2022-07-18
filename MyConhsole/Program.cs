@@ -3,9 +3,14 @@ Console.WriteLine("Enter what you need to do:");
 switch (Console.ReadLine())
 {
     case "data":
-        var json = System.IO.File.ReadAllText(@"..\..\..\json1.json");
-        var UsersData = System.Text.Json.JsonSerializer.Deserialize<List<yazeed>>(json);
-        foreach (var item in UsersData)
+        foreach (var item in Tools.JsonFunctions.Deserializejson<List<yazeed>>("json1"))
+        {
+            Console.WriteLine($"name:{item.name}, Age:{item.age}, ");
+        }
+        break;
+    
+    case "yaseer":
+        foreach (var item in Tools.JsonFunctions.Deserializejson<List<yazeed>>("json1"))
         {
             Console.WriteLine($"name:{item.name}, Age:{item.age}, ");
         }
@@ -66,6 +71,11 @@ goto line1;
 
 
 public class yazeed
+{
+    public string name { get; set; }
+    public int age { get; set; }
+}
+public class yaseer
 {
     public string name { get; set; }
     public int age { get; set; }
