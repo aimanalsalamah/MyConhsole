@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Faisal ALMutairi",
+    "Age": 21,
+    "Mobile": "0500000000",
+    "Email": "Faisal@gmail.com",
+    "MaritalStatus": "marrid",
+    "Children": 4,
+    "City": "Riyadh",
+    "Area": "King Fahad"
+  },
+  {
+    "name": "Khaled",
+    "Age": 21,
+    "Mobile": "05555555555",
+    "Email": "Khaled@hotmail.com",
+    "MaritalStatus": "Single",
+    "Children": 4,
+    "City": "Riyadh",
+    "Area": "Alnasim"
+  }
+]
