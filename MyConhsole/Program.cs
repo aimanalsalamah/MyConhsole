@@ -3,14 +3,21 @@ Console.WriteLine("Enter what you need to do:");
 
 switch (Console.ReadLine())
 {
+    case "task":
+        var type = new Tools.FunctionTypes();
+        type.None();
+        type.Take("Abdullah");
+        Console.WriteLine(type.Giv());
+        Console.WriteLine(type.TakeAndGit(10, 10));
+        break;
     case "data":
         foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Users>>("Data"))
         {
             Console.WriteLine($"name:{item.name}, Age:{item.Age}, Mobile:{item.Mobile}");
         }
         break;
-    case "Customer":
-        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Customers>>("Customer"))
+    case "customer":
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Customers>>("Customers"))
         {
             Console.WriteLine($"name:{item.name}, Age:{item.Age}");
         }
@@ -66,9 +73,6 @@ switch (Console.ReadLine())
         Console.WriteLine("Wrong command.");
         break;
 }
-
-
-
 goto line1;
 
 public class Users
