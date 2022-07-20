@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyConhsole", "MyConhsole\MyConhsole.csproj", "{4249F579-8CBF-4E74-82A0-0701351F4386}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{6347C66B-66A7-4DA3-846E-8E71C8E6D15B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "Tools\Tools.csproj", "{6347C66B-66A7-4DA3-846E-8E71C8E6D15B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{108E919E-184D-47C3-A5E6-179AB7F8B7A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6347C66B-66A7-4DA3-846E-8E71C8E6D15B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6347C66B-66A7-4DA3-846E-8E71C8E6D15B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6347C66B-66A7-4DA3-846E-8E71C8E6D15B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{108E919E-184D-47C3-A5E6-179AB7F8B7A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{108E919E-184D-47C3-A5E6-179AB7F8B7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{108E919E-184D-47C3-A5E6-179AB7F8B7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{108E919E-184D-47C3-A5E6-179AB7F8B7A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
