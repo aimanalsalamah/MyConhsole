@@ -1,0 +1,23 @@
+{
+  [
+    {
+      "name": "Ahmed",
+      "Age": 42,
+      "Mobile": "5556666",
+      "Email": "ahmed11@hotmail.com",
+      "MaritalStatus": "singl",
+      "Children": 4,
+      "City": "Riyadh",
+      "Area": "King Fahad"
+    },
+    {
+      "name": "Ali",
+      "Age": 24,
+      "Mobile": "05555555555",
+      "Email": "ali@hotmail.com",
+      "MaritalStatus": "Single",
+      "Children": 4,
+      "City": "Riyadh",
+      "Area": "Alnasim"
+    }
+  ]

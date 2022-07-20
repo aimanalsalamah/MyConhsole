@@ -1,8 +1,27 @@
-﻿//This is Aiman Branch Welcome
-line1:
+﻿line1:
 Console.WriteLine("Enter what you need to do:");
+
 switch (Console.ReadLine())
 {
+    case "test":
+        var Funtype = new Tools.FunctionTypes();
+        Funtype.None();
+        Funtype.Take("Aiman");
+        Console.WriteLine(Funtype.Giv());
+        Console.WriteLine(Funtype.TakeAndGit(10, 10));
+        break;
+    case "data":
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Users>>("Data"))
+        {
+            Console.WriteLine($"name:{item.name}, Age:{item.Age}, Mobile:{item.Mobile}");
+        }
+        break;
+    case "customer":
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Customers>>("Customers"))
+        {
+            Console.WriteLine($"name:{item.name}, Age:{item.Age}");
+        }
+        break;
     case "+":
         Console.WriteLine("Enter value1");
         var value1 = int.Parse(Console.ReadLine());
@@ -55,3 +74,20 @@ switch (Console.ReadLine())
         break;
 }
 goto line1;
+
+public class Users
+{
+    public string name { get; set; }
+    public int Age { get; set; }
+    public string Mobile { get; set; }
+    public string Email { get; set; }
+    public string MaritalStatus { get; set; }
+    public int Children { get; set; }
+    public string City { get; set; }
+    public string Area { get; set; }
+}
+public class Customers
+{
+    public string name { get; set; }
+    public int Age { get; set; }
+}
