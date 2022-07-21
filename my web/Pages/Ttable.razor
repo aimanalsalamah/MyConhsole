@@ -1,0 +1,22 @@
+﻿@page "/Ttable"
+<h3>Ttable</h3>
+
+<table class="table">
+    <tr>
+        <th>الاسم</th>
+        <th>رقم الجوال</th>
+        <th>العمر</th>
+    </tr>
+    @for (var i = 0; i < 1090; i++)
+    {
+        <tr>
+            <td>Customer @i</td>
+            <td>05554244 @i</td>
+            <td>@i</td>
+        </tr>
+    }
+</table>
+
+@code {
+
+}
