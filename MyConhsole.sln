@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyConhsole", "MyConhsole\My
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "Tools\Tools.csproj", "{9E2286F4-6C02-44CD-971C-A17347496375}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wep", "wep\wep.csproj", "{232B0545-55EE-484A-A242-799CCFC2B9C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "wep", "wep\wep.csproj", "{232B0545-55EE-484A-A242-799CCFC2B9C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

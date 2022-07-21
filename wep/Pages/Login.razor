@@ -1,0 +1,16 @@
+﻿@page "/Login"
+
+<h3>Login</h3>
+<label>Email</label>
+<input type="text" @bind-value="this.Email"/>
+<label>Password</label>
+<input type="text" @bind-value="this.Password"/>
+<button @onclick="Submit">Login</button>
+@code {
+    public string Email { get; set; }
+    public string Password { get; set; }
+    void Submit()
+    {
+        
+    }
+}
