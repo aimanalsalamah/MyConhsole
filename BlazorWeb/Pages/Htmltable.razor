@@ -1,0 +1,22 @@
+﻿@page "/htmltable"
+<h3>HtmlTable</h3>
+
+<table class="table">
+    <tr>
+        <th>الاسم</th>
+        <th>رقم الجوال</th>
+        <th>العمر</th>
+    </tr>
+    @for (var i = 0; i < 100; i++)
+    {
+        <tr>
+            <td>عميل @i</td>
+            <td>05554244 @i</td>
+            <td>@i</td>
+        </tr>
+    }
+</table>
+
+@code {
+
+}
