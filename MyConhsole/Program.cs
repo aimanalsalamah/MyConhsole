@@ -2,6 +2,14 @@
 Console.WriteLine("Enter what you need to do:");
 switch (Console.ReadLine())
 {
+    case "saad":
+        var Funtype = new Tools.FunctionTypes();
+        Funtype.None();
+        Funtype.Take("mohamed");
+        Console.WriteLine(Funtype.Giv());
+        Console.WriteLine(Funtype.TakeAndGit(24, 66));
+        break;
+
     case "data":
         foreach (var item in Tools.JsonFunctions.Deserializejson<List<yazeed>>("json1"))
         {
