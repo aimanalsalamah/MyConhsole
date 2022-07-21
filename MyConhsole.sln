@@ -5,9 +5,9 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyConhsole", "MyConhsole\MyConhsole.csproj", "{4249F579-8CBF-4E74-82A0-0701351F4386}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "ClassLibrary1\Tools.csproj", "{E47E4111-FE1C-452F-94F4-1DEF94AA28BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "ClassLibrary1\Tools.csproj", "{E47E4111-FE1C-452F-94F4-1DEF94AA28BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWeb", "BlazorWeb\BlazorWeb.csproj", "{8E55E10D-6F5E-4313-85F7-E2F721868406}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWeb", "BlazorWeb\BlazorWeb.csproj", "{8E55E10D-6F5E-4313-85F7-E2F721868406}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
