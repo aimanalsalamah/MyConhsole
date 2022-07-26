@@ -12,13 +12,13 @@ switch (Console.ReadLine())
         Console.WriteLine(Funtype.TakeAndGit(10, 10));
         break;
     case "data":
-        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Faisal>>("Data"))
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Tools.Model.User>>("Data"))
         {
             Console.WriteLine($"name:{item.name}, Age:{item.Age}, Mobile:{item.Mobile}");
         }
         break;
     case "customer":
-        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Faisal>>("Customers"))
+        foreach (var item in Tools.JsonFunctions.DeserializeJson<List<Tools.Model.Customer>>("Customer"))
         {
             Console.WriteLine($"name:{item.name}, Age:{item.Age}");
         }
@@ -75,20 +75,3 @@ switch (Console.ReadLine())
         break;
 }
 goto line1;
-
-public class Faisal
-{
-    public string name { get; set; }
-    public int Age { get; set; }
-    public string Mobile { get; set; }
-    public string Email { get; set; }
-    public string MaritalStatus { get; set; }
-    public int Children { get; set; }
-    public string City { get; set; }
-    public string Area { get; set; }
-}
-public class Customers
-{
-    public string name { get; set; }
-    public int Age { get; set; }
-}
