@@ -1,0 +1,22 @@
+﻿@page "/Users"
+<h3>HtmlTable</h3>
+
+<table class="Users">
+    <tr>
+        <th>العنوان</th>
+        <th>المدينه</th>
+        <th>الحي</th>
+    </tr>
+    @for (var i = 0; i < 100; i++)
+    {
+        <tr>
+            <td>الروضه @i</td>
+            <td>الرياض  @i</td>
+            <td>@i الريان </td>
+        </tr>
+    }
+</table>
+
+@code {
+
+}
