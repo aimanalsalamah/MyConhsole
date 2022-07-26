@@ -1,4 +1,4 @@
-﻿@page "/htmltable"
+﻿@page "/Users"
 <h3>HtmlTable</h3>
 
 <table class="table">
@@ -6,7 +6,7 @@
         <th>الاسم</th>
         <th>العمر</th>
     </tr>
-    @foreach (var item in this.Customers)
+    @foreach (var item in this.UsersModel)
    {
         <tr>
             <td>@item.name</td>
@@ -16,12 +16,13 @@
 </table>
 
 @code {
-    public List<Tools.Models.Customers> Customers { get; set; } = new();
+    public List<Tools.Models.Users> UsersModel { get; set; } = new();
     protected override async Task OnInitializedAsync()
     {
         var client = new HttpClient();
-        var response = await client.GetAsync("https://localhost:4442/customers");
-        Customers = await response.Content.ReadAsAsync<List<Tools.Models.Customers>>();
+        var response = await client.GetAsync("https://localhost:4442/Users");
+        UsersModel = await response.Content.ReadAsAsync<List<Tools.Models.Users>>();
     }
 }
+
 

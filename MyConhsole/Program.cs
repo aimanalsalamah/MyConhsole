@@ -1,4 +1,6 @@
 ﻿//This is Aiman Branch Welcome
+using Tools.Models;
+
 line1:
 Console.WriteLine("Enter what you need to do:");
 
@@ -76,19 +78,3 @@ switch (Console.ReadLine())
 }
 goto line1;
 
-public class Users
-{
-    public string name { get; set; }
-    public int Age { get; set; }
-    public string Mobile { get; set; }
-    public string Email { get; set; }
-    public string MaritalStatus { get; set; }
-    public int Children { get; set; }
-    public string City { get; set; }
-    public string Area { get; set; }
-}
-public class Customers
-{
-    public string name { get; set; }
-    public int Age { get; set; }
-}
