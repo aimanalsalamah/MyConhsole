@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "ClassLibrary1\Tool
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWeb", "BlazorWeb\BlazorWeb.csproj", "{8E55E10D-6F5E-4313-85F7-E2F721868406}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{A1936C9D-56AD-4B3C-9282-579B7747C574}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{A1936C9D-56AD-4B3C-9282-579B7747C574}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

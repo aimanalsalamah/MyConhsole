@@ -1,25 +1,25 @@
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddCors();
-var app = builder.Build();
-app.UseHttpsRedirection();
-app.UseCors(p => p.AllowAnyOrigin());
-
-app.MapGet("/HOME", () =>
+builder.Services.AddControllers();
+builder.Services.AddCors(options =>
 {
-    return "OK";
-});
-app.MapGet("/Customers", () =>
-{
-var Customers = new List<Tools.Model.Customers>();
-    for (var i = 1; i <= 140; i++)
+    options.AddPolicy(name: "origins",
+    builder =>
     {
-        Customers.Add(new Tools.Model.Customers
-        {
-            name = "Customers" + i,
-            Age = 42 + i
-        });
-    }
-    return Customers;
+        builder
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
 });
-
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
+var app = builder.Build();
+app.UseAuthorization();
+app.MapControllers();
+app.UseHttpsRedirection();
+app.UseCors("origins");
 app.Run();
