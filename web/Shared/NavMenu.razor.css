@@ -60,3 +60,8 @@
         display: block;
     }
 }
+.rr {
+    background-color: red;
+    color: white;
+    padding: 10px;
+}
