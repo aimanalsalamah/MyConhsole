@@ -1,0 +1,27 @@
+﻿@page "/Customers"
+<h3>Customers</h3>
+
+<table class="table">
+<tr>
+    <th>الاسم</th>
+    <th>العمر</th>
+</tr>
+@foreach (var itme in this.customerModel)
+{
+    
+    <tr>
+        <td>@itme.name</td>
+        <td>@itme.Age</td>
+    </tr>
+}
+</table>
+
+@code {
+    public List<Tools.Model.Customers> customerModel { get; set; } = new();
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new HttpClient();
+        var respone = await client.GetAsync("https://localhost:7249/Customers");
+        customerModel = await respone.Content.ReadAsAsync<List<Tools.Model.Customers>>();
+    }
+}

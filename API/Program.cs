@@ -1,6 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors();
 var app = builder.Build();
 app.UseHttpsRedirection();
+app.UseCors(p => p.AllowAnyOrigin());
 
 app.MapGet("/HOME", () =>
 {
