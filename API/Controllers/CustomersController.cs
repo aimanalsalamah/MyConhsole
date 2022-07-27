@@ -21,7 +21,7 @@ namespace API.Controllers
             return Ok (Customers);
         }
         [HttpPost]
-        public ActionResult post(Tools.Models.Customers Customers)
+        public ActionResult post(Tools.Model.Customers Customers)
         {
             return Ok();
         }
