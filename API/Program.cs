@@ -1,40 +1,25 @@
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddCors();
-
+builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "origins",
+    builder =>
+    {
+        builder
+        .AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
 var app = builder.Build();
-
-app.UseCors(p => p.AllowAnyOrigin());
+app.UseAuthorization();
+app.MapControllers();
 app.UseHttpsRedirection();
-
-app.MapGet("/home", () =>
-{
-    return "ok";
-});
-app.MapGet("/Users", () =>
-{
-    var Users = new List<Tools.Models.Users>();
-    for (var i = 1; i <= 100; i++)
-    {
-        Users.Add(new Tools.Models.Users
-        {
-            Name = "User" + i,
-            Age = 25
-        });
-    }
-    return Users;
-});
-app.MapGet("/Customers", () =>
-{
-    var Customers = new List<Tools.Models.Customers>();
-    for (var i = 1; i <= 100; i++)
-    {
-        Customers.Add(new Tools.Models.Customers
-        {
-            Name = "Customers" + i,
-            Age = 25
-        });
-    }
-    return Customers;
-});
+app.UseCors("origins");
 app.Run();
