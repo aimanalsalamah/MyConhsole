@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tools", "Tools\Tools.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "Web\Web.csproj", "{A59A9176-D4C6-4FDC-A908-DA82C1696E87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{DD5EB442-24B2-4724-98D3-BD8EE19F6345}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{DD5EB442-24B2-4724-98D3-BD8EE19F6345}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

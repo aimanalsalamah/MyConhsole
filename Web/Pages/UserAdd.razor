@@ -1,0 +1,16 @@
+﻿@page "/newuser"
+<h3>UserAdd</h3>
+<label>Name</label>
+<input type="text" @bind-value="this.User.name"/>
+<label>Age</label>
+<input type="number" @bind-value="this.User.Age"/>
+<button @onclick="Submit">Login</button>
+@code {
+    public Tools.Model.User User { get; set; } = new();
+    async Task Submit()
+    {
+        var client = new HttpClient();
+        var response = await client.PostAsJsonAsync("https://localhost:7250/User", User);
+
+    }
+}
