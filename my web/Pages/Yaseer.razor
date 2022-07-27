@@ -6,14 +6,13 @@
         <th>رقم الجوال</th>
         <th>العمر</th>
     </tr>
-    @for (var i = 0; i < 100; i++)
-    {
+    @foreach (var item in this.Yaseermodels)
+   {
         <tr>
-            <td>Customer @i</td>
-            <td>05554244 @i</td>
-            <td>@i</td>
+            <td>@item.name</td>
+            <td>@item.age</td>
         </tr>
-    }
+   }
 </table>
 @code {
      public List<Tools.models.Yaseer> Yaseermodels { get; set; } = new();
