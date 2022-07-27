@@ -20,5 +20,10 @@ namespace API.Controllers
             }
             return Ok (Yaseer);
         }
+        [HttpPost]
+        public ActionResult Post(Tools.models.Yaseer model)
+        {
+            return Ok();
+        }
     }
 }

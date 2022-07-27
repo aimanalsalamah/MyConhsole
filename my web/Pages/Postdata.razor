@@ -1,0 +1,17 @@
+﻿@page "/postdata"
+<h3>post_data</h3>
+<h3>UserAdd</h3>
+<label>Name</label>
+<input type="text" @bind-value="this.model.name"/>
+<label>Age</label>
+<input type="number" @bind-value="this.model.age"/>
+<button @onclick="Submit">Login</button>
+@code {
+    public Tools.models.Yaseer model { get; set; } = new();
+    async Task Submit()
+    {
+        var client = new HttpClient();
+        var response = await client.PostAsJsonAsync("https://localhost:7172/Yaseer",model);
+
+    }
+}
