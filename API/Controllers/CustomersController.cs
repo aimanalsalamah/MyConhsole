@@ -20,5 +20,10 @@ namespace API.Controllers
             }
             return Ok (Customers);
         }
+        [HttpPost]
+        public ActionResult post(Tools.Models.Customers Customers)
+        {
+            return Ok();
+        }
     }
 }
