@@ -1,0 +1,38 @@
+[
+  {
+    "name": "FahadAlmalki",
+    "Age": 22,
+    "height": 171,
+    "weight": 58,
+    "phone": "0508443352",
+    "study rate": "98%",
+    "City": "Riyadh",
+    "Email": "Fahad835@gmail.com",
+    "Experience": "2 weeks",
+    "Specialty": "programming"
+  },
+  {
+    "name": "Ahmed Almalki",
+    "Age": 33,
+    "height": 169,
+    "weight": 53,
+    "phone": "0554367892",
+    "study rate": "90%",
+    "City": "Riyadh",
+    "Email": "Ahmed-110@gmail.com",
+    "Experience": "6 years",
+    "Specialty": "programming"
+  },
+  {
+    "name": "Azooz Alzhrani",
+    "Age":40 ,
+    "height": 173,
+    "weight": 60,
+    "phone": "0543268765",
+    "study rate": "75%",
+    "City": "Riyadh",
+    "Email": "A-z-Alzhrani@gmail.com",
+    "Experience": "11 years",
+    "Specialty": "programming"
+  }
+]

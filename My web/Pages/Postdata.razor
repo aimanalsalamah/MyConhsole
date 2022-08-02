@@ -1,0 +1,17 @@
+﻿@page "/PostData"
+<h3>Postdata</h3>
+<label>Name</label>
+<input type="text" @bind-value="this.customr.name"/>
+<label>Age</label>
+<input type="number" @bind-value="this.customr.Age"/>
+<button @onclick="Submit">Login</button>
+@code 
+{
+    public Tools.Model.Customr customr { get; set; } = new();
+    async Task Submit()
+    {
+        var client = new HttpClient();
+        var response = await client.PostAsJsonAsync("https://localhost:7110/customr", customr);
+
+    }
+}
