@@ -9,8 +9,8 @@ namespace Tools.Models
     public class Users
     {
         public string Name { get; set; }
-        public string Mobile { get; set; }
-        public int Age { get; set; }
+        public string? Mobile { get; set; }
+        public int? Age { get; set; }
 
     }
 }

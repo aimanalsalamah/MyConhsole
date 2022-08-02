@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Tools.Models;
 
 namespace API.Controllers
 {
@@ -6,24 +9,111 @@ namespace API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        public ActionResult Get()
+        private readonly APIContext _context;
+
+        public UsersController(APIContext context)
         {
-            var users = new List<Tools.Models.Users>();
-            for (var i = 1; i <= 100; i++)
-            {
-                users.Add(new Tools.Models.Users
-                {
-                    Name = "new user" + i,
-                    Age = 43 + i
-                });
-            }
-            return Ok(users);
+            _context = context;
         }
 
-        [HttpPost]
-        public ActionResult Post(Tools.Models.Users user)
+        // GET: api/Users
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
         {
-            return Ok();
+            if (_context.Users == null)
+            {
+                return NotFound();
+            }
+            return await _context.Users.ToListAsync();
+        }
+
+        // GET: api/Users/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Users>> GetUsers(int id)
+        {
+            if (_context.Users == null)
+            {
+                return NotFound();
+            }
+            var users = await _context.Users.FindAsync(id);
+
+            if (users == null)
+            {
+                return NotFound();
+            }
+
+            return users;
+        }
+
+        // PUT: api/Users/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutUsers(int id, Users users)
+        {
+            if (id != users.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(users).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UsersExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // POST: api/Users
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Users>> PostUsers(Users users)
+        {
+            if (_context.Users == null)
+            {
+                return Problem("Entity set 'APIContext.Users'  is null.");
+            }
+            _context.Users.Add(users);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetUsers", new { id = users.Id }, users);
+        }
+
+        // DELETE: api/Users/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUsers(int id)
+        {
+            if (_context.Users == null)
+            {
+                return NotFound();
+            }
+            var users = await _context.Users.FindAsync(id);
+            if (users == null)
+            {
+                return NotFound();
+            }
+
+            _context.Users.Remove(users);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool UsersExists(int id)
+        {
+            return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
