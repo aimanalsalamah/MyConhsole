@@ -10,7 +10,7 @@
     async Task Submit()
     {
         var client = new HttpClient();
-        var response = await client.PostAsJsonAsync("https://localhost:7250/User", User);
+        var response = await client.PostAsJsonAsync("https://localhost:7250/Users", User);
 
     }
 }

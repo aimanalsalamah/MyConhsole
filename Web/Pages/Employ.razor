@@ -1,4 +1,4 @@
-﻿@page "/Employers"
+﻿@page "/Employer"
 <h3>Employers</h3>
 
 @page "/Employ"
@@ -21,7 +21,7 @@
     protected override async Task OnInitializedAsync()
     {
         var client = new HttpClient();
-        var response = await client.GetAsync("https://localhost:7089/Employer");
+        var response = await client.GetAsync("https://localhost:7250/Employers");
         Employers = await response.Content.ReadAsAsync<List<Tools.Models.Employers>>();
     }
 }

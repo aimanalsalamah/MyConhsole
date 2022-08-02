@@ -20,7 +20,7 @@
     protected override async Task OnInitializedAsync()
     {
         var client = new HttpClient();
-        var response = await client.GetAsync("https://localhost:4442/Customer");
+        var response = await client.GetAsync("https://localhost:7250/Customers");
         Customermodel = await response.Content.ReadAsAsync<List<Tools.Model.Customer>>();
     }
 }
