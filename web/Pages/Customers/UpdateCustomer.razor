@@ -1,0 +1,39 @@
+﻿@page "/UpdateCustomer/{Id}"
+@inject NavigationManager _nav
+<h3>تعديل بيانات العميل</h3>
+<label> الاسم:</label>
+<input type="text" @bind-value="this.Customer.name"/>
+<label>العمر:</label>
+<input type="number" @bind-value="this.Customer.Age"/>
+<button @onclick="Submit">حفظ</button>
+<button @onclick="this.Back">إلغاء</button>
+
+@code {
+    public Tools.Model.Customers Customer { get; set; } = new();
+    [Parameter]
+    public string Id { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new HttpClient();
+        var response = await client.GetAsync("https://localhost:2030/Customers/" + Id);
+        if(response.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            this.Customer = await response.Content.ReadAsAsync<Tools.Model.Customers>();
+        }
+    }
+
+    async Task Submit()
+    {
+        var client = new HttpClient();
+        var response = await client.PutAsJsonAsync("https://localhost:2030/Customers/" + Id, Customer);
+        if(response.StatusCode == System.Net.HttpStatusCode.NoContent)
+        {
+            _nav.NavigateTo("customers");
+        }
+    }
+        void Back()
+    {
+        _nav.NavigateTo("customers");
+    }
+
+}
