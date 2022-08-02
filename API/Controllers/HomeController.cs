@@ -9,7 +9,7 @@ namespace API.Controllers
     {
         public ActionResult Get()
         {
-        return Ok("Ok from controllers");
+            return Ok("Ok from controllers");
 
         }
     }
