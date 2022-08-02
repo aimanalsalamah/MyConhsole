@@ -1,0 +1,27 @@
+﻿@page "/newcustomer"
+@inject NavigationManager _nav
+<h3>عميل جديد</h3>
+<label> الاسم:</label>
+<input type="text" @bind-value="this.Customer.name"/>
+<label>العمر:</label>
+<input type="number" @bind-value="this.Customer.Age"/>
+<button @onclick="Submit">حفظ</button>
+<button @onclick="this.Back">إلغاء</button>
+
+@code {
+    public Tools.Models.Customers Customer { get; set; } = new();
+    async Task Submit()
+    {
+        var client = new HttpClient();
+        var response = await client.PostAsJsonAsync("https://localhost:4442/Customers", Customer);
+        if(response.StatusCode == System.Net.HttpStatusCode.Created)
+        {
+            _nav.NavigateTo("customer");
+        }
+    }
+        void Back()
+    {
+        _nav.NavigateTo("customer");
+    }
+
+}
