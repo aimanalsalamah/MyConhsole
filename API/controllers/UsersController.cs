@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Tools.Models;
 
-namespace API.Controllers
+namespace API.controllers
 {
     [Route("[controller]")]
     [ApiController]
@@ -20,10 +20,10 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
         {
-            if (_context.Users == null)
-            {
-                return NotFound();
-            }
+          if (_context.Users == null)
+          {
+              return NotFound();
+          }
             return await _context.Users.ToListAsync();
         }
 
@@ -31,10 +31,10 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Users>> GetUsers(int id)
         {
-            if (_context.Users == null)
-            {
-                return NotFound();
-            }
+          if (_context.Users == null)
+          {
+              return NotFound();
+          }
             var users = await _context.Users.FindAsync(id);
 
             if (users == null)
@@ -81,10 +81,10 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<Users>> PostUsers(Users users)
         {
-            if (_context.Users == null)
-            {
-                return Problem("Entity set 'APIContext.Users'  is null.");
-            }
+          if (_context.Users == null)
+          {
+              return Problem("Entity set 'APIContext.Users'  is null.");
+          }
             _context.Users.Add(users);
             await _context.SaveChangesAsync();
 

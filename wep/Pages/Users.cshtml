@@ -1,0 +1,27 @@
+﻿@page "/Users"
+<h3>HtmlTable</h3>
+
+<table class="table">
+    <tr>
+        <th>الاسم</th>
+        <th>العمر</th>
+    </tr>
+    @foreach (var item in this.UsersModel)
+   {
+        <tr>
+            <td>@item.name</td>
+            <td>@item.Age</td>
+        </tr>
+   }
+</table>
+
+@code {
+    public List<Tools.Models.Users> UsersModel { get; set; } = new();
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new HttpClient();
+        var response = await client.GetAsync("https://localhost:4442/Users");
+        UsersModel = await response.Content.ReadAsAsync<List<Tools.Models.Users>>();
+    }
+}
+
