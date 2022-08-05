@@ -1,0 +1,28 @@
+﻿@page "/CustomerDetails/{Id}"
+@inject NavigationManager _nav
+<h3>تفاصيل العميل</h3>
+@if(this.customr != null)
+{
+    <label>الاسم: @customr.name</label>
+    <br/>
+    <label>العمر: @customr.Age</label>
+}
+<button @onclick="this.Back">رجوع</button>
+@code {
+    public Tools.Model.Customr customr { get; set; }
+    [Parameter]
+    public string Id { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new HttpClient();
+        var response = await client.GetAsync("https://localhost:7110/customrs/" + Id);
+        if(response.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            this.customr = await response.Content.ReadAsAsync<Tools.Model.Customr>();
+        }
+    }
+    void Back()
+    {
+        _nav.NavigateTo("CustomerList");
+    }
+}
