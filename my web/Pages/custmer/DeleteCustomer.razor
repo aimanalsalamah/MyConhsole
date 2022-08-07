@@ -1,0 +1,41 @@
+﻿@page "/DeleteCustomer/{Id}"
+@inject NavigationManager _nav
+<h3>حذف العميل </h3>
+@if(this.Yaseere != null)
+{
+    <label>الاسم: @Yaseere.name</label>
+    <br/>
+    <label>العمر: @Yaseere.age</label>
+}
+<p>هل انت متاكد من حذف البيانات؟</p>
+<button @onclick="this.Delete">حذف</button>
+<button @onclick="this.Back">إلغاء</button>
+
+@code {
+    public Tools.models.Yaseer Yaseere { get; set; }
+    [Parameter]
+    public string Id { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new HttpClient();
+        var response = await client.GetAsync("https://localhost:7172/Yaseer/" + Id);
+        if(response.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            this.Yaseere = await response.Content.ReadAsAsync<Tools.models.Yaseer>();
+        }
+    }
+    async Task Delete()
+    {
+        var client = new HttpClient();
+        var response = await client.DeleteAsync("https://localhost:7172/Yaseer/" + Id);
+        if(response.StatusCode == System.Net.HttpStatusCode.NoContent)
+        {
+            _nav.NavigateTo("Yaseer");
+        }
+    }
+    void Back()
+    {
+        _nav.NavigateTo("Yaseer");
+    }
+
+}
