@@ -1,11 +1,11 @@
 ﻿@page "/DeleteBook/{Id}"
 @inject NavigationManager _nav
-<h3>حذف العميل </h3>
+<h3>حذف الكتاب </h3>
 @if(this.Book != null)
 {
     <label>الاسم: @Book.name</label>
     <br/>
-    <label>العمر: @Book.Age</label>
+    <label>رقم الكتاب: @Book.Age</label>
 }
 <p>هل انت متاكد من حذف البيانات؟</p>
 <button @onclick="this.Delete">حذف</button>
