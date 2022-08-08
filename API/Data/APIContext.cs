@@ -19,5 +19,7 @@ namespace API.Data
         public DbSet<Tools.Model.Users>? Users { get; set; }
 
         public DbSet<Tools.Model.Employers>? Employers { get; set; }
+
+        public DbSet<Tools.Model.Books>? Books { get; set; }
     }
 }

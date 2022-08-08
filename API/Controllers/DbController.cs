@@ -55,5 +55,19 @@ namespace API.Controllers
             _context.SaveChanges();
             return Ok("Employers inserted.");
         }
+        [HttpGet("fillBooks")]
+        public ActionResult FillBooks()
+        {
+            for (int i = 1; i < 100; i++)
+            {
+                _context.Books.Add(new()
+                {
+                    name = "books " + i,
+                    Age = i
+                });
+            }
+            _context.SaveChanges();
+            return Ok("Books inserted.");
+        }
     }
 }

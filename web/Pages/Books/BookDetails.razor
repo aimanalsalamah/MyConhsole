@@ -1,0 +1,28 @@
+﻿@page "/BookDetails/{Id}"
+@inject NavigationManager _nav
+<h3>تفاصيل كتاب</h3>
+@if(this.Book != null)
+{
+    <label>الاسم: @Book.name</label>
+    <br/>
+    <label>العمر: @Book.Age</label>
+}
+<button @onclick="this.Back">رجوع</button>
+@code {
+    public Tools.Model.Books Book { get; set; }
+    [Parameter]
+    public string Id { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new HttpClient();
+        var response = await client.GetAsync("https://localhost:2030/Books/" + Id);
+        if(response.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            this.Book = await response.Content.ReadAsAsync<Tools.Model.Books>();
+        }
+    }
+    void Back()
+    {
+        _nav.NavigateTo("Books");
+    }
+}

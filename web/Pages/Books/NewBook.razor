@@ -1,0 +1,27 @@
+﻿@page "/newBook"
+@inject NavigationManager _nav
+<h3>كتاب جديد</h3>
+<label> اسم الكتاب</label>
+<input type="text" @bind-value="this.Books.name"/>
+<label>النوع:</label>
+<input type="number" @bind-value="this.Books.Age"/>
+<button @onclick="Submit">حفظ</button>
+<button @onclick="this.Back">إلغاء</button>
+
+@code {
+    public Tools.Model.Books Books { get; set; } = new();
+    async Task Submit()
+    {
+        var client = new HttpClient();
+        var response = await client.PostAsJsonAsync("https://localhost:2030/Books", Books);
+        if(response.StatusCode == System.Net.HttpStatusCode.Created)
+        {
+            _nav.NavigateTo("Books");
+        }
+    }
+        void Back()
+    {
+        _nav.NavigateTo("Books");
+    }
+
+}
