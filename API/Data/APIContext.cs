@@ -10,6 +10,8 @@ namespace API.Data
         }
 
         public DbSet<Tools.Model.Customr> Customr { get; set; } = default!;
-        
+
+        public DbSet<Tools.Model.record1>? Record { get; set; }= default!;
+
     }
 }

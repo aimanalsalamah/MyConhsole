@@ -40,5 +40,20 @@ namespace API.Controllers
             _context.SaveChanges();
             return Ok("Customers inserted.");
         }
+
+        [HttpGet("fillrecord")]
+        public ActionResult Fillrecord()
+        {
+            for (int i = 1; i < 100; i++)
+            {
+                _context.Record.Add(new()
+                {
+                    name = "Record " + i,
+                    Age = i
+                });
+            }
+            _context.SaveChanges();
+            return Ok("Record inserted.");
+        }
     }
     }
