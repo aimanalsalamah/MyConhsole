@@ -5,7 +5,7 @@ using Tools.Model;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class Record1Controller : ControllerBase
     {
