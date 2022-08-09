@@ -1,0 +1,26 @@
+﻿@page "/NewUsers"
+@inject NavigationManager _nav
+<h3>كتاب جديد</h3>
+<label> كتاب:</label>
+<input type="text" @bind-value="this.Users.name"/>
+<label>رقم الكتب:</label>
+<input type="number" @bind-value="this.Users.Age"/>
+<button @onclick="Submit">حفظ</button>
+<button @onclick="this.Back">إلغاء</button>
+
+@code {
+    public Tools.Model.Users Users { get; set; } = new();
+    async Task Submit()
+    {
+        var client = new HttpClient();
+        var response = await client.PostAsJsonAsync("https://localhost:7249/Users", Users);
+        if(response.StatusCode == System.Net.HttpStatusCode.Created)
+        {
+            _nav.NavigateTo("Users");
+        }
+    }
+        void Back()
+    {
+        _nav.NavigateTo("Users");
+    }
+}

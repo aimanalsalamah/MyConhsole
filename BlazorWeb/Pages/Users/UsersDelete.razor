@@ -1,0 +1,41 @@
+﻿@page "/UsersDelete/{Id}"
+@inject NavigationManager _nav
+<h3>حذف الكتاب </h3>
+@if(this.Users != null)
+{
+    <label>اسم الكتاب: @Users.name</label>
+    <br/>
+    <label>رقم الكتاب: @Users.Age</label>
+}
+<p>هل انت متاكد من حذف البيانات؟</p>
+<button @onclick="this.Delete">حذف</button>
+<button @onclick="this.Back">إلغاء</button>
+
+@code {
+    public Tools.Model.Users Users { get; set; }
+    [Parameter]
+    public string Id { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new HttpClient();
+        var response = await client.GetAsync("https://localhost:7249/Users/" + Id);
+        if(response.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            this.Users = await response.Content.ReadAsAsync<Tools.Model.Users>();
+        }
+    }
+    async Task Delete()
+    {
+        var client = new HttpClient();
+        var response = await client.DeleteAsync("https://localhost:7249/Users/" + Id);
+        if(response.StatusCode == System.Net.HttpStatusCode.NoContent)
+        {
+            _nav.NavigateTo("Users");
+        }
+    }
+    void Back()
+    {
+        _nav.NavigateTo("Users");
+    }
+
+    }

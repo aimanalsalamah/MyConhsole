@@ -1,0 +1,28 @@
+﻿@page "/UsersDetalis/{Id}"
+@inject NavigationManager _nav
+<h3>تفاصيل الكتاب</h3>
+@if(this.Users != null)
+{
+    <label>اسم الكتاب: @Users.name</label>
+    <br/>
+    <label>رقم الكتاب: @Users.Age</label>
+}
+<button @onclick="this.Back">رجوع</button>
+@code {
+    public Tools.Model.Users Users { get; set; }
+    [Parameter]
+    public string Id { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new HttpClient();
+        var response = await client.GetAsync("https://localhost:7249/Users/" + Id);
+        if(response.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            this.Users = await response.Content.ReadAsAsync<Tools.Model.Users>();
+        }
+    }
+    void Back()
+    {
+        _nav.NavigateTo("Users");
+    }
+}

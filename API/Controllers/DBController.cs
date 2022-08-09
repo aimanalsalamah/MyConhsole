@@ -33,12 +33,26 @@ namespace API.Controllers
             {
                 _context.Customers.Add(new()
                 {
-                    name = "Customer " + i,
+                    name = "customers " + i,
                     Age = i
                 });
             }
             _context.SaveChanges();
-            return Ok("Customers inserted.");
+            return Ok("Users inserted.");
+        }
+        [HttpGet("fillusers")]
+        public ActionResult Fillusers()
+        {
+            for (int i = 1; i < 100; i++)
+            {
+                _context.Customers.Add(new()
+                {
+                    name = "Users " + i,
+                    Age = i
+                });
+            }
+            _context.SaveChanges();
+            return Ok("Users inserted.");
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Tools.Model;
 
 namespace API.Data
 {
@@ -10,5 +11,7 @@ namespace API.Data
         }
 
         public DbSet<Tools.Model.Customers> Customers { get; set; } = default!;
+
+        public DbSet<Tools.Model.Users>? Users { get; set; }
     }
 }
