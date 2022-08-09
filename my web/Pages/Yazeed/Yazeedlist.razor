@@ -1,0 +1,50 @@
+﻿@page "/Yazeed"
+
+@inject NavigationManager _nav
+<h3>العملاء</h3>
+<button @onclick="GoToNewPage">اضافة زبون جديد</button>
+<table class="table">
+    <tr>
+        <th>الاسم</th>
+        <th>العمر</th>
+        <th></th>
+    </tr>
+    @foreach (var item in this.Yazeed)
+   {
+        <tr>
+            <td>@item.name</td>
+            <td>@item.age</td>
+            <td>
+                <button @onclick="()=> GoToDetailsPage(item.Id)">التفاصيل</button>
+                <button @onclick="()=> GoToUpdatePage(item.Id)">تعديل</button>
+                <button @onclick="()=> GoToDeletePage(item.Id)">حذف</button>
+            </td>
+        </tr>
+   }
+</table>
+
+@code {
+    public List<Tools.models.yazeed> Yazeed { get; set; } = new();
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new HttpClient();
+        var response = await client.GetAsync("https://localhost:7172/Yazeed");
+        Yazeed = await response.Content.ReadAsAsync<List<Tools.models.yazeed>>();
+    }
+    void GoToNewPage()
+    {
+        _nav.NavigateTo("Yazeednew");
+    }
+    void GoToDetailsPage(int id)
+    {
+        _nav.NavigateTo("YazeedDetails/" + id);
+    }
+    void GoToDeletePage(int id)
+    {
+        _nav.NavigateTo("Yazeeddelete/" + id);
+    }
+    void GoToUpdatePage(int id)
+    {
+        _nav.NavigateTo("Yazeedupbate/" + id);
+    }
+}
