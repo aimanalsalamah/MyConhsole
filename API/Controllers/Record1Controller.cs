@@ -20,12 +20,12 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<record1>>> Getrecord1()
         {
-          if (_context.Record == null)
+          if (_context.record1 == null)
           {
               return NotFound();
           }
 
-            List<Tools.Model.record1> Record = await _context.Record.ToListAsync();
+            List<Tools.Model.record1> Record = await _context.record1.ToListAsync();
             return Record;
         }
 
@@ -33,11 +33,11 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<record1>> Getrecord1(int id)
         {
-          if (_context.Record == null)
+          if (_context.record1 == null)
           {
               return NotFound();
           }
-            var record1 = await _context.Record.FindAsync(id);
+            var record1 = await _context.record1.FindAsync(id);
 
             if (record1 == null)
             {
@@ -83,11 +83,11 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<record1>> Postrecord1(record1 record1)
         {
-          if (_context.Record == null)
+          if (_context.record1 == null)
           {
               return Problem("Entity set 'APIContext.record1'  is null.");
           }
-            _context.Record.Add(record1);
+            _context.record1.Add(record1);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("Getrecord1", new { id = record1.id }, record1);
@@ -97,17 +97,17 @@ namespace API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Deleterecord1(int id)
         {
-            if (_context.Record == null)
+            if (_context.record1 == null)
             {
                 return NotFound();
             }
-            var record1 = await _context.Record.FindAsync(id);
+            var record1 = await _context.record1.FindAsync(id);
             if (record1 == null)
             {
                 return NotFound();
             }
 
-            _context.Record.Remove(record1);
+            _context.record1.Remove(record1);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -115,7 +115,7 @@ namespace API.Controllers
 
         private bool record1Exists(int id)
         {
-            return (_context.Record?.Any(e => e.id == id)).GetValueOrDefault();
+            return (_context.record1?.Any(e => e.id == id)).GetValueOrDefault();
         }
     }
 }

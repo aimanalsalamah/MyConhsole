@@ -13,7 +13,7 @@
     async Task Submit()
     {
         var client = new HttpClient();
-        var response = await client.PostAsJsonAsync("https://localhost:7110/Record", Record);
+        var response = await client.PostAsJsonAsync("https://localhost:7110/Record1", Record);
         if(response.StatusCode == System.Net.HttpStatusCode.Created)
         {
             _nav.NavigateTo("Record");

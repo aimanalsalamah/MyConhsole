@@ -1,24 +1,24 @@
 ﻿@page "/RecordDetails/{Id}"
 @inject NavigationManager _nav
 <h3>تفاصيل العميل</h3>
-@if(this.Record != null)
+@if(this.record1 != null)
 {
-    <label>الاسم: @Record.name</label>
+    <label>الاسم: @record1.name</label>
     <br/>
-    <label>العمر: @Record.Age</label>
+    <label>العمر: @record1.Age</label>
 }
 <button @onclick="this.Back">رجوع</button>
 @code {
-    public Tools.Model.record1 Record { get; set; }
+    public Tools.Model.record1 record1 { get; set; }
     [Parameter]
     public string Id { get; set; }
     protected override async Task OnInitializedAsync()
     {
         var client = new HttpClient();
-        var response = await client.GetAsync("https://localhost:7110/Record/" + Id);
+        var response = await client.GetAsync("https://localhost:7110/Record1/" + Id);
         if(response.StatusCode == System.Net.HttpStatusCode.OK)
         {
-            this.Record = await response.Content.ReadAsAsync<Tools.Model.record1>();
+            this.record1 = await response.Content.ReadAsAsync<Tools.Model.record1>();
         }
     }
     void Back()

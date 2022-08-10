@@ -46,7 +46,7 @@ namespace API.Controllers
         {
             for (int i = 1; i < 100; i++)
             {
-                _context.Record.Add(new()
+                _context.record1.Add(new()
                 {
                     name = "Record " + i,
                     Age = i

@@ -25,10 +25,12 @@
 
 @code {
     public List<Tools.Model.record1> Record { get; set; } = new();
+
+   
     protected override async Task OnInitializedAsync()
     {
         var client = new HttpClient();
-        var response = await client.GetAsync("https://localhost:7110/Record");
+        var response = await client.GetAsync("https://localhost:7110/Record1");
         Record = await response.Content.ReadAsAsync<List<Tools.Model.record1>>();
     }
     void GoToNewPage()
