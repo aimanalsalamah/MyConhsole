@@ -1,15 +1,15 @@
 ﻿@page "/UpdateStudents/{Id}"
 @inject NavigationManager _nav
-<h3>تعديل بيانات العميل</h3>
-<label> الاسم:</label>
-<input type="text" @bind-value="this.Students.Name"/>
-<label>العمر:</label>
-<input type="number" @bind-value="this.Students.Age"/>
-<button @onclick="Submit">حفظ</button>
-<button @onclick="this.Back">إلغاء</button>
+<h3>edit student information</h3>
+<label> name:</label>
+<input type="text" @bind-value="this.Student.Name"/>
+<label>age:</label>
+<input type="number" @bind-value="this.Student.Age"/>
+<button @onclick="Submit">save</button>
+<button @onclick="this.Back">cancle</button>
 
 @code {
-    public Tools.Models.Students Students { get; set; } = new();
+    public Tools.Models.Students Student { get; set; } = new();
     [Parameter]
     public string Id { get; set; }
     protected override async Task OnInitializedAsync()
@@ -18,14 +18,14 @@
         var response = await client.GetAsync("https://localhost:7110/Students/" + Id);
         if(response.StatusCode == System.Net.HttpStatusCode.OK)
         {
-            this.Students = await response.Content.ReadAsAsync<Tools.Models.Students>();
+            this.Student = await response.Content.ReadAsAsync<Tools.Models.Students>();
         }
     }
 
     async Task Submit()
     {
         var client = new HttpClient();
-        var response = await client.PutAsJsonAsync("https://localhost:7110/Students/" + Id, Students);
+        var response = await client.PutAsJsonAsync("https://localhost:7110/Students/" + Id, Student);
         if(response.StatusCode == System.Net.HttpStatusCode.NoContent)
         {
             _nav.NavigateTo("Students");

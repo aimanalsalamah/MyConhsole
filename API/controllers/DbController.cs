@@ -26,7 +26,7 @@ namespace API.Controllers
             return Ok(_context.Database.EnsureDeleted());
         }
 
-        [HttpGet("fillcustomers")]
+        [HttpGet("fillCustomers")]
         public ActionResult FillCustomers()
         {
             for (int i = 1; i < 100; i++)
@@ -53,7 +53,23 @@ namespace API.Controllers
                 });
             }
             _context.SaveChanges();
-            return Ok("Users inserted.");
+            return Ok("Stuents inserted.");
+            }
+            [HttpGet("fillStudents")]
+            public ActionResult FillStudents()
+            {
+                for (int i = 1; i < 100; i++)
+                {
+                    _context.Student.Add(new()
+                    {
+                        Name = "student " + i,
+                        Age = i
+                    });
+                }
+                _context.SaveChanges();
+                return Ok("Students inserted.");
+            
         }
     }
 }
+    

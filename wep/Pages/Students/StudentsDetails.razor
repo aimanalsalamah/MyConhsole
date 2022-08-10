@@ -1,13 +1,13 @@
 ﻿@page "/StudentsDetails/{Id}"
 @inject NavigationManager _nav
-<h3>تفاصيل العميل</h3>
+<h3>student details</h3>
 @if(this.Students != null)
 {
-    <label>الاسم: @Students.Name</label>
+    <label>name: @Students.Name</label>
     <br/>
-    <label>العمر: @Students.Age</label>
+    <label>age: @Students.Age</label>
 }
-<button @onclick="this.Back">رجوع</button>
+<button @onclick="this.Back">back</button>
 @code {
     public Tools.Models.Students Students { get; set; }
     [Parameter]

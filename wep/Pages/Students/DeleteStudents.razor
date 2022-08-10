@@ -1,18 +1,18 @@
 ﻿@page "/DeleteStudents/{Id}"
 @inject NavigationManager _nav
-<h3>حذف العميل </h3>
-@if(this.Students != null)
+<h3>delete student </h3>
+@if(this.Student != null)
 {
-    <label>الاسم: @Students.Name</label>
+    <label>name: @Student.Name</label>
     <br/>
-    <label>العمر: @Students.Age</label>
+    <label>age: @Student.Age</label>
 }
-<p>هل انت متاكد من حذف البيانات؟</p>
-<button @onclick="this.Delete">حذف</button>
-<button @onclick="this.Back">إلغاء</button>
+<p>are you sure you want to delete information</p>
+<button @onclick="this.Delete">delete</button>
+<button @onclick="this.Back">cancle</button>
 
 @code {
-    public Tools.Models.Students Students { get; set; }
+    public Tools.Models.Students Student { get; set; }
     [Parameter]
     public string Id { get; set; }
     protected override async Task OnInitializedAsync()
@@ -21,7 +21,7 @@
         var response = await client.GetAsync("https://localhost:7110/Students/" + Id);
         if(response.StatusCode == System.Net.HttpStatusCode.OK)
         {
-            this.Students = await response.Content.ReadAsAsync<Tools.Models.Students>();
+            this.Student = await response.Content.ReadAsAsync<Tools.Models.Students>();
         }
     }
     async Task Delete()

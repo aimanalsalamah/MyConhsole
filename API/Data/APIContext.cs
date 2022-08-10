@@ -17,5 +17,7 @@ namespace API.Data
         public DbSet<Tools.Models.Customers> Customers { get; set; } = default!;
 
         public DbSet<Tools.Models.Users>? Users { get; set; }
+        public DbSet<Tools.Models.Students>? Student { get; set; }
+       
     }
 }

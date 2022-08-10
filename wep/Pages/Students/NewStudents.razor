@@ -1,19 +1,19 @@
 ﻿@page "/newStudents"
 @inject NavigationManager _nav
-<h3>عميل جديد</h3>
-<label> الاسم:</label>
-<input type="text" @bind-value="this.Students.Name"/>
-<label>العمر:</label>
-<input type="number" @bind-value="this.Students.Age"/>
-<button @onclick="Submit">حفظ</button>
-<button @onclick="this.Back">إلغاء</button>
+<h3>new student</h3>
+<label> name:</label>
+<input type="text" @bind-value="this.Student.Name"/>
+<label>age:</label>
+<input type="number" @bind-value="this.Student.Age"/>
+<button @onclick="Submit">save</button>
+<button @onclick="this.Back">cancle</button>
 
 @code {
-    public Tools.Models.Students Students { get; set; } = new();
+    public Tools.Models.Students Student { get; set; } = new();
     async Task Submit()
     {
         var client = new HttpClient();
-        var response = await client.PostAsJsonAsync("https://localhost:7110/Students", Students);
+        var response = await client.PostAsJsonAsync("https://localhost:7110/Students", Student);
         if(response.StatusCode == System.Net.HttpStatusCode.Created)
         {
             _nav.NavigateTo("Students");
