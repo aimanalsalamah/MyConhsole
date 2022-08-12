@@ -1,15 +1,15 @@
 ﻿@page "/DeleteFollowing/{Id}"
 @inject NavigationManager _nav
-<h3>حذف العميل </h3>
+<h3>Delte Frinde  </h3>
 @if(this.Followings != null)
 {
-    <label>الاسم: @Followings.name</label>
+    <label>Name: @Followings.name</label>
     <br/>
-    <label>العمر: @Followings.Age</label>
+    <label>Number phone: @Followings.Age</label>
 }
-<p>هل انت متاكد من حذف البيانات؟</p>
-<button @onclick="this.Delete">حذف</button>
-<button @onclick="this.Back">إلغاء</button>
+<p>Are you sure you need delete your frinde?</p>
+<button @onclick="this.Delete">Delete</button>
+<button @onclick="this.Back">Cansel</button>
 
 @code {
     public Tools.Model.Following Followings { get; set; }

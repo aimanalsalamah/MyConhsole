@@ -1,13 +1,13 @@
 ﻿@page "/FollowingDetails/{Id}"
 @inject NavigationManager _nav
-<h3>تفاصيل العميل</h3>
+<h3> Follower details</h3>
 @if(this.Followings != null)
 {
-    <label>الاسم: @Followings.name</label>
+    <label>Name: @Followings.name</label>
     <br/>
-    <label>العمر: @Followings.Age</label>
+    <label>Number phone: @Followings.Age</label>
 }
-<button @onclick="this.Back">رجوع</button>
+<button @onclick="this.Back">Back</button>
 @code {
     public Tools.Model.Following Followings { get; set; }
     [Parameter]

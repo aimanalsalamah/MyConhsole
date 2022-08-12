@@ -1,12 +1,12 @@
 ﻿@page "/NewFollowing"
 @inject NavigationManager _nav
-<h3>عميل جديد</h3>
-<label> الاسم:</label>
+<h3>New added</h3>
+<label> Name:</label>
 <input type="text" @bind-value="this.Followings.name"/>
-<label>العمر:</label>
+<label>Number phone:</label>
 <input type="number" @bind-value="this.Followings.Age"/>
-<button @onclick="Submit">حفظ</button>
-<button @onclick="this.Back">إلغاء</button>
+<button @onclick="Submit">Save</button>
+<button @onclick="this.Back">Cansel</button>
 
 @code 
 {

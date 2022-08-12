@@ -1,11 +1,11 @@
 ﻿@page "/Followings"
 @inject NavigationManager _nav
-<h3>العملاء</h3>
-<button @onclick="GoToNewPage">اضافة زبون جديد</button>
+<h3>Following</h3>
+<button @onclick="GoToNewPage">Add a serious friend</button>
 <table class="table">
     <tr>
-        <th>الاسم</th>
-        <th>العمر</th>
+        <th>Name</th>
+        <th>Number phone</th>
         <th></th>
     </tr>
     @foreach (var item in this.Followings)
@@ -14,9 +14,9 @@
             <td>@item.name</td>
             <td>@item.Age</td>
             <td>
-                <button @onclick="()=> GoToDetailsPage(item.id)">التفاصيل</button>
-                <button @onclick="()=> GoToUpdatePage(item.id)">تعديل</button>
-                <button @onclick="()=> GoToDeletePage(item.id)">حذف</button>
+                <button @onclick="()=> GoToDetailsPage(item.id)">Details</button>
+                <button @onclick="()=> GoToUpdatePage(item.id)">Update</button>
+                <button @onclick="()=> GoToDeletePage(item.id)">Delete</button>
 
             </td>
         </tr>
