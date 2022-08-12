@@ -8,7 +8,8 @@
 <button @onclick="Submit">حفظ</button>
 <button @onclick="this.Back">إلغاء</button>
 
-@code {
+@code 
+{
     public Tools.Model.record1 Record { get; set; } = new();
     async Task Submit()
     {

@@ -54,6 +54,21 @@ namespace API.Controllers
             }
             _context.SaveChanges();
             return Ok("Record inserted.");
+        } 
+        
+        [HttpGet("fillFollowing")]
+        public ActionResult FillFollowing()
+        {
+            for (int i = 1; i < 100; i++)
+            {
+                _context.Following.Add(new()
+                {
+                    name = "My frinde " + i,
+                    Age = i
+                });
+            }
+            _context.SaveChanges();
+            return Ok("Record inserted.");
         }
     }
     }

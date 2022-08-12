@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Tools.Model;
 
 namespace API.Data
 {
@@ -12,6 +13,8 @@ namespace API.Data
         public DbSet<Tools.Model.Customr> Customr { get; set; } = default!;
 
         public DbSet<Tools.Model.record1>? record1 { get; set; }= default!;
+
+        public DbSet<Tools.Model.Following>? Following { get; set; }
 
     }
 }
