@@ -63,12 +63,12 @@ namespace API.Controllers
             {
                 _context.Following.Add(new()
                 {
-                    name = "My frinde " + i,
+                    name = "Followings " + i,
                     Age = i
                 });
             }
             _context.SaveChanges();
-            return Ok("Record inserted.");
+            return Ok("Followings inserted.");
         }
     }
     }

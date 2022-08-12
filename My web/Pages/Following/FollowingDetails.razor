@@ -1,0 +1,28 @@
+﻿@page "/FollowingDetails/{Id}"
+@inject NavigationManager _nav
+<h3>تفاصيل العميل</h3>
+@if(this.Followings != null)
+{
+    <label>الاسم: @Followings.name</label>
+    <br/>
+    <label>العمر: @Followings.Age</label>
+}
+<button @onclick="this.Back">رجوع</button>
+@code {
+    public Tools.Model.Following Followings { get; set; }
+    [Parameter]
+    public string Id { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var client = new HttpClient();
+        var response = await client.GetAsync("https://localhost:7110/Followings/" + Id);
+        if(response.StatusCode == System.Net.HttpStatusCode.OK)
+        {
+            this.Followings = await response.Content.ReadAsAsync<Tools.Model.Following>();
+        }
+    }
+    void Back()
+    {
+        _nav.NavigateTo("Followings");
+    }
+}

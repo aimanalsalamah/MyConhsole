@@ -1,0 +1,28 @@
+﻿@page "/NewFollowing"
+@inject NavigationManager _nav
+<h3>عميل جديد</h3>
+<label> الاسم:</label>
+<input type="text" @bind-value="this.Followings.name"/>
+<label>العمر:</label>
+<input type="number" @bind-value="this.Followings.Age"/>
+<button @onclick="Submit">حفظ</button>
+<button @onclick="this.Back">إلغاء</button>
+
+@code 
+{
+    public Tools.Model.Following Followings { get; set; } = new();
+    async Task Submit()
+    {
+        var client = new HttpClient();
+        var response = await client.PostAsJsonAsync("https://localhost:7110/Followings", Followings);
+        if(response.StatusCode == System.Net.HttpStatusCode.Created)
+        {
+            _nav.NavigateTo("Followings");
+        }
+    }
+        void Back()
+    {
+        _nav.NavigateTo("Followings");
+    }
+
+}

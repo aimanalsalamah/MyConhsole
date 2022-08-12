@@ -14,7 +14,7 @@ namespace API.Data
 
         public DbSet<Tools.Model.record1>? record1 { get; set; }= default!;
 
-        public DbSet<Tools.Model.Following>? Following { get; set; }
+        public DbSet<Tools.Model.Following>? Following { get; set; }= default;
 
     }
 }
