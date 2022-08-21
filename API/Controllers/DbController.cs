@@ -44,7 +44,7 @@ namespace API.Controllers
         [HttpGet("fillrecord")]
         public ActionResult Fillrecord()
         {
-            for (int i = 1; i < 100; i++)
+            for (int i = 1; i < 30; i++)
             {
                 _context.record1.Add(new()
                 {
@@ -59,7 +59,7 @@ namespace API.Controllers
         [HttpGet("fillFollowing")]
         public ActionResult FillFollowing()
         {
-            for (int i = 1; i < 100; i++)
+            for (int i = 1; i < 40; i++)
             {
                 _context.Following.Add(new()
                 {
