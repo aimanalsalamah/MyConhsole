@@ -20,10 +20,10 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customr>>> Getcustomr()
         {
-          if (_context.Customr == null)
-          {
-              return NotFound();
-          }
+            if (_context.Customr == null)
+            {
+                return NotFound();
+            }
             return await _context.Customr.ToListAsync();
         }
 
@@ -31,10 +31,10 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Customr>> Getcustomr(int id)
         {
-          if (_context.Customr == null)
-          {
-              return NotFound();
-          }
+            if (_context.Customr == null)
+            {
+                return NotFound();
+            }
             var customr = await _context.Customr.FindAsync(id);
 
             if (customr == null)
@@ -81,16 +81,16 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<Customr>> Postcustomr(Customr customr)
         {
-          if (_context.Customr == null)
-          {
-              return Problem("Entity set 'APIContext.customr'  is null.");
-          }
+            if (_context.Customr == null)
+            {
+                return Problem("Entity set 'APIContext.customr'  is null.");
+            }
             _context.Customr.Add(customr);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("Getcustomr", new { id = customr.id }, customr);
         }
-
+        
         // DELETE: api/customrs/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Deletecustomr(int id)
@@ -115,5 +115,6 @@ namespace API.Controllers
         {
             return (_context.Customr?.Any(e => e.id == id)).GetValueOrDefault();
         }
+
     }
 }
