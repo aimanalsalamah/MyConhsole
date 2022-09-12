@@ -1,7 +1,7 @@
 ﻿@page "/CustomerList"
 @inject NavigationManager _nav
 <h3>العملاء</h3>
-<button @onclick="GoToNewPage">اضافة زبون جديد</button>
+<button @onclick="GoToNewPage" class="btn btn-primary" style="width:90%;">اضافة زبون جديد</button>
 <table class="table">
     <tr>
         <th>الاسم</th>
@@ -17,7 +17,6 @@
                 <button @onclick="()=> GoToDetailsPage(item.id)">التفاصيل</button>
                 <button @onclick="()=> GoToUpdatePage(item.id)">تعديل</button>
                 <button @onclick="()=> GoToDeletePage(item.id)">حذف</button>
-
             </td>
         </tr>
    }
